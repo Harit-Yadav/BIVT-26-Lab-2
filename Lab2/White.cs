@@ -8,7 +8,10 @@
             int answer = 0;
 
             // code here
-
+            for (int i = 1; i <= n; i++)
+            {
+                answer += 3 * i - 1;
+            }
             // end
 
             return answer;
@@ -18,7 +21,10 @@
             double answer = 0;
 
             // code here
-
+            for (int i = 1; i <= n; i++)
+            {
+                answer += 1.0 / i;
+            }
             // end
 
             return answer;
@@ -28,7 +34,15 @@
             long answer = 0;
 
             // code here
+            answer = 1;
 
+            unchecked
+            {
+                for (int i = 2; i <= n; i++)
+                {
+                    answer *= i;
+                }
+            }
             // end
 
             return answer;
@@ -38,7 +52,12 @@
             long answer = 0;
 
             // code here
+            answer = 1;
 
+            for (int i = 0; i < b; i++)
+            {
+                answer *= a;
+            }
             // end
 
             return answer;
@@ -48,7 +67,19 @@
             int answer = 0;
 
             // code here
+            int term = 1;
+            int product = 1;
 
+            unchecked
+            {
+                while (product <= L)
+                {
+                    term += 3;
+                    product *= term;
+                }
+            }
+
+            answer = term;
             // end
 
             return answer;
@@ -58,7 +89,21 @@
             double answer = 0;
 
             // code here
+            answer = 0;
 
+            double term = 1;
+
+            while (true)
+            {
+                answer += term;
+
+                if (term < E)
+                {
+                    break;
+                }
+
+                term *= x * x;
+            }
             // end
 
             return answer;
@@ -69,7 +114,13 @@
             int answer = 0;
 
             // code here
+            int sum = 0;
 
+            while (sum < n)
+            {
+                answer++;
+                sum += answer;
+            }
             // end
 
             return answer;
@@ -80,7 +131,8 @@
             const double R = 6371.0; // радиус Земли, км
 
             // code here
-
+            answer = (int)Math.Ceiling(
+            (Math.Sqrt(R * R + L * L) - R) / v);
             // end
 
             return answer;
