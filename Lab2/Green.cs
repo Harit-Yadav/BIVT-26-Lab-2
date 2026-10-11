@@ -137,26 +137,23 @@ namespace Lab2
             double SY = 0;
 
             // code here
-            for (double x = a; x <= b + (h / 2); x += h)
+            double steps = (b - a) / h + E;
+            for (int k = 0; k <= steps; k++)
             {
-                double s = 0;
-                double num = x;
+                double x = a + k * h;
+                double power = x;
+                int sign = 1;
                 int i = 0;
-                while (true)
+                double t;
+                do
                 {
-                    int znamenatel = 2 * i + 1;
-                    double one_of = num / znamenatel;
-                    if (Math.Abs(one_of) < E)
-                    {
-                        break;
-                    }
-                    s += one_of;
+                    t = sign * power / (2 * i + 1);
+                    SS += t;
+                    power *= x * x;
+                    sign *= -1;
                     i++;
-                    num *= -1.0 * x * x;
-                }
-                SS += s;
+                } while (Math.Abs(t) >= E);
                 SY += Math.Atan(x);
-
             }
             // end
 
